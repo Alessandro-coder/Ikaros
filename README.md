@@ -30,6 +30,14 @@ KEEP THE IKAROS'S FOLDER ON THE DESKTOP!!
 
 When you run the script you'll see a menu:
 
+## IMPORTANT
+
+TYPE CTRL + C TO SKIP A PROCESS LIKE THE BRUTE FORCE
+FOR THE PASSWORD AND GO TO THE NEXT PROCESS.
+
+DON'T WORRY!
+IN THE NEXT UPDATE THERE WILL BE MANY BUG FIXES
+
 ## 1
 The first option allows you to scan a certain host 
 to find open ports on it;
