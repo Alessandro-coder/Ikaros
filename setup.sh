@@ -6,8 +6,9 @@ echo "giving administrator permission to ikaros"
 chmod 755 ikaros
 chmod 755 $HOME/Desktop/Ikaros/tools/ssltest.py
 chmod 755 $HOME/Desktop/Ikaros/tools/WPSeku/wpseku.py
-chmod 755 $HOME/Desktop/Ikaros/tools/Spaghetti/spaghetti.py
+chmod 755 $HOME/Desktop/Ikaros/tools/Spaghetti/wascan.py
 chmod 755 $HOME/Desktop/Ikaros/tools/theHarvester/theHarvester.py
+chmod 755 $HOME/Desktop/Ikaros/tools/Spaghett1/spaghetti.py
 
 echo "installing requirements..."
 
