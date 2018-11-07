@@ -14,7 +14,7 @@ cd Desktop
 
 git clone https://github.com/naz1warrior/Ikaros
 
-cd Desktop/Ikaros
+cd Ikaros
 
 chmod +x setup.sh
 
