@@ -23,6 +23,7 @@ if [[ $1 == "--update" ]]
   echo ""
   echo ""
   read -sn 1 -p " Press any key to continue "
+  ikaros
   else
 
 
