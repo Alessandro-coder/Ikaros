@@ -303,7 +303,60 @@ if [ "$Home" == "99" ]
     
     
 fi
-            
+
+if [ "$Home" == "update" ]
+  then
+  clear
+  echo ""
+  echo "   ╔════════════════════════════════════════════════════════════════╗"
+  echo "   ║                           Updating...                          ║"              
+  echo "   ╚════════════════════════════════════════════════════════════════╝"
+  echo ""
+  echo ""
+  rm -r $HOME/Desktop/Ikaros
+  cd $HOME/Desktop
+  git clone https://www.github.com/naz1warrior/Ikaros
+  cd $HOME/Desktop/Ikaros
+  chmod +x setup.sh
+  ./setup.sh
+  clear
+  echo ""
+  echo "   ╔════════════════════════════════════════════════════════════════╗"
+  echo "   ║                        Update Finished                         ║"              
+  echo "   ╚════════════════════════════════════════════════════════════════╝"
+  echo ""
+  echo ""
+  read -sn 1 -p " Press any key to continue "
+  clear
+  ikaros
+fi
+
+if [ "$Home" == "--update" ]
+  then
+  clear
+  echo ""
+  echo "   ╔════════════════════════════════════════════════════════════════╗"
+  echo "   ║                           Updating...                          ║"              
+  echo "   ╚════════════════════════════════════════════════════════════════╝"
+  echo ""
+  echo ""
+  rm -r $HOME/Desktop/Ikaros
+  cd $HOME/Desktop
+  git clone https://www.github.com/naz1warrior/Ikaros
+  cd $HOME/Desktop/Ikaros
+  chmod +x setup.sh
+  ./setup.sh
+  clear
+  echo ""
+  echo "   ╔════════════════════════════════════════════════════════════════╗"
+  echo "   ║                        Update Finished                         ║"              
+  echo "   ╚════════════════════════════════════════════════════════════════╝"
+  echo ""
+  echo ""
+  read -sn 1 -p " Press any key to continue "
+  clear
+  ikaros
+fi
             
 if [ "$Home" == "00" ]
   then
@@ -311,5 +364,5 @@ if [ "$Home" == "00" ]
     else
       ikaros
 fi
-      
+
 fi
