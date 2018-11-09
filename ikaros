@@ -328,7 +328,7 @@ if [ "$Home" == "update" ]
   echo ""
   read -sn 1 -p " Press any key to continue "
   clear
-  ikaros
+  
 fi
 
 if [ "$Home" == "--update" ]
@@ -355,7 +355,7 @@ if [ "$Home" == "--update" ]
   echo ""
   read -sn 1 -p " Press any key to continue "
   clear
-  ikaros
+  
 fi
             
 if [ "$Home" == "00" ]
