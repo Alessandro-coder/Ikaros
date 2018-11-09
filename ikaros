@@ -1,0 +1,313 @@
+#!/bin/bash
+
+if [[ $1 == "--update" ]]
+  then
+  clear
+  echo ""
+  echo " ╔════════════════════════════════════════════════════════════════╗"
+  echo " ║                           Updating...                          ║"              
+  echo " ╚════════════════════════════════════════════════════════════════╝"
+  echo ""
+  echo ""
+  rm -r $HOME/Desktop/Ikaros
+  cd $HOME/Desktop
+  git clone https://www.github.com/naz1warrior/Ikaros
+  cd $HOME/Desktop/Ikaros
+  chmod +x setup.sh
+  ./setup.sh
+  clear
+  echo ""
+  echo " ╔════════════════════════════════════════════════════════════════╗"
+  echo " ║                        Update Finished                         ║"              
+  echo " ╚════════════════════════════════════════════════════════════════╝"
+  echo ""
+  echo ""
+  read -sn 1 -p " Press any key to continue "
+  else
+
+
+echo
+echo \ ██╗██╗ \ ██╗ █████╗ ██████╗ \ ██████╗\ \███████╗
+echo \ ██║██║ ██╔╝██╔══██╗██╔══██╗██╔═══██╗██╔════╝
+echo \ ██║█████╔╝ ███████║██████╔╝██║ \ \ ██║███████╗
+echo \ ██║██╔═██╗ ██╔══██║██╔══██╗██║ \ \ ██║╚════██║
+echo \ ██║██║ \ ██╗██║ \ ██║██║ \ ██║╚██████╔╝███████║
+echo \ ╚═╝╚═╝ \ ╚═╝╚═╝ \ ╚═╝╚═╝ \ ╚═╝ ╚═════╝ ╚══════╝
+echo \ Created by Alessandro Barucca
+echo \ 
+echo \ @Version Beta 2.1
+echo \ 
+echo \ 
+
+
+
+echo " 01) Scan a certain Host  [Type 0.0.0.0/0 for a Global-Scan]" 
+echo " 02) Pentest"
+echo " 03) Full-Scan with Pentest"
+
+
+echo \ 
+
+echo " 99) Help"
+echo " 00) Exit"
+echo \ 
+echo \ 
+
+read -p " Ikaros> " Home
+echo \ 
+echo \ 
+
+echo \ 
+
+
+if [ "$Home" == "1" ]
+   then
+
+   read -p " ip to scan:" ip_to_scan
+   read -p " port to scan:  [Press Enter for all the doors] " port_to_scan
+
+   echo
+
+
+   if [ "$port_to_scan" == "" ]
+      then
+         nmap -sT $ip_to_scan -oG $HOME/Desktop/Ikaros/results/results
+         cat $HOME/Desktop/Ikaros/results/results | grep open > $HOME/Desktop/Ikaros/results/port_open
+         cat $HOME/Desktop/Ikaros/results/port_open | cut -f2 -d ":" | cut -f1 -d "(" > $HOME/Desktop/Ikaros/results/maybe_vulnerable
+         rm $HOME/Desktop/Ikaros/results/results
+      else
+         nmap -sT $ip_to_scan -p $port_to_scan -oG $HOME/Desktop/Ikaros/results/results
+         cat $HOME/Desktop/Ikaros/results/results | grep open > $HOME/Desktop/Ikaros/results/port_open
+         cat $HOME/Desktop/Ikaros/results/port_open | cut -f2 -d ":" | cut -f1 -d "(" > $HOME/Desktop/Ikaros/results/maybe_vulnerable
+         rm $HOME/Desktop/Ikaros/results/results
+   fi
+
+
+   echo ""
+   echo " ╔════════════════════════════════════════════════════════════════╗"
+   echo " ║                           IPs Found                            ║"              
+   echo " ╚════════════════════════════════════════════════════════════════╝"
+   echo ""
+   echo ""
+
+   cat $HOME/Desktop/Ikaros/results/maybe_vulnerable
+
+   echo ""
+   echo " Scan Completed"
+   echo ""
+   read -sn 1 -p " Press any key to continue "
+   
+   
+   
+fi
+
+if [ "$Home" == "2" ]
+  then
+  echo \ 
+  echo \ 
+  echo " In the next Update."
+  echo \ 
+  echo \ 
+  read -sn 1 -p " Press any key to continue "
+fi
+        
+
+
+if [ "$Home" == "3" ]
+  then
+    read -p " ip to scan:" ip_to_scan
+    read -p " port to scan:  [Press Enter for all the doors] " port_to_scan
+
+    echo
+
+
+if [ "$port_to_scan" == "" ]
+  then
+    nmap -sT $ip_to_scan -oG $HOME/Desktop/Ikaros/results/results
+    cat $HOME/Desktop/Ikaros/results/results | grep open > $HOME/Desktop/Ikaros/results/port_open
+    cat $HOME/Desktop/Ikaros/results/port_open | cut -f2 -d ":" | cut -f1 -d "(" > $HOME/Desktop/Ikaros/results/maybe_vulnerable
+    rm $HOME/Desktop/Ikaros/results/results
+      else
+        nmap -sT $ip_to_scan -p $port_to_scan -oG $HOME/Desktop/Ikaros/results/results
+        cat $HOME/Desktop/Ikaros/results/results | grep open > $HOME/Desktop/Ikaros/results/port_open
+        cat $HOME/Desktop/Ikaros/results/port_open | cut -f2 -d ":" | cut -f1 -d "(" > $HOME/Desktop/Ikaros/results/maybe_vulnerable
+        rm $HOME/Desktop/Ikaros/results/results
+          fi
+
+
+echo ""
+echo " ╔════════════════════════════════════════════════════════════════╗"
+echo " ║                           IPs Found                            ║"              
+echo " ╚════════════════════════════════════════════════════════════════╝"
+echo ""
+echo ""
+
+cat $HOME/Desktop/Ikaros/results/maybe_vulnerable
+
+echo ""
+echo ""
+echo ""
+
+
+read -p " Would you like to perform the Whois Scan? [y/n]" wois
+if [ "$wois" == "y" ]
+  then
+    echo ""
+    echo " ╔════════════════════════════════════════════════════════════════╗"
+    echo " ║                       Starting Whois Scan                      ║"              
+    echo " ╚════════════════════════════════════════════════════════════════╝"
+    echo ""
+      while read ip
+        do
+        whois -r $ip
+        done<$HOME/Desktop/Ikaros/results/maybe_vulnerable
+          echo ""
+          echo " ╔════════════════════════════════════════════════════════════════╗"
+          echo " ║                       Whois Scan Finished                      ║"              
+          echo " ╚════════════════════════════════════════════════════════════════╝"
+          echo ""
+            else
+              echo ""
+                fi
+
+echo ""
+echo ""
+echo ""
+
+read -p " Would you like to perform the WordPress Scan? [y/n]" wp
+if [ "$wp" == "n" ]
+  then
+    echo ""
+      
+elif [ "$wp" == "y" ]
+  then
+    echo ""
+    echo " ╔════════════════════════════════════════════════════════════════╗"
+    echo " ║                     Starting WordPress Scan                    ║"              
+    echo " ╚════════════════════════════════════════════════════════════════╝"
+    echo ""
+    cd $HOME/Desktop/Ikaros/tools/WPSeku
+    python wpseku.py --target $ip_to_scan
+    echo ""
+    echo ""
+    echo ""
+    echo " ╔════════════════════════════════════════════════════════════════╗"
+    echo " ║                        Enumerating Users                       ║"              
+    echo " ╚════════════════════════════════════════════════════════════════╝"
+    echo ""
+    read -p " How many threads would you like to use? [default:10]" THREADS
+  if [ ${THREADS} -le 0 ]
+    then
+      echo \ 
+      echo " Wrong input."
+      echo \ 
+      echo \ 
+  elif [ ${THREADS} -le 20 ]
+    then
+      wpscan --url http://$ip_to_scan --enumerate u --wordlist $HOME/Desktop/Ikaros/tools/vietnamese-wordlist/Viet74K.txt --threads ${THREADS} --force
+  elif [ -z $THREADS ]
+    then
+      wpscan --url http://$ip_to_scan --enumerate u --wordlist $HOME/Desktop/Ikaros/tools/vietnamese-wordlist/Viet74K.txt --threads 10 --force
+      echo ""
+      echo " ╔════════════════════════════════════════════════════════════════╗"
+      echo " ║                     WordPress Scan Finished                    ║"              
+      echo " ╚════════════════════════════════════════════════════════════════╝"
+      echo ""
+  elif [ ${THREADS} -gt 20 ]
+    then
+      echo \ 
+      echo " Wrong input."
+      echo \ 
+      echo \ 
+  fi
+fi
+
+
+
+
+
+read -p " Would you like some Spaghetti? [y/n]" spaghetti
+if [ "$spaghetti" == "y" ]
+  then
+    echo ""
+    echo " ╔════════════════════════════════════════════════════════════════╗"
+    echo " ║                         Eating Spaghetti                       ║"              
+    echo " ╚════════════════════════════════════════════════════════════════╝"
+    echo ""
+      cd $HOME/Desktop/Ikaros/tools/Spaghett1
+      python spaghetti.py --url $ip_to_scan --scan 0
+      cd $HOME/Desktop/Ikaros/tools/Spaghetti
+      python wascan.py --url $ip_to_scan --scan 5
+        echo ""
+        echo " ╔════════════════════════════════════════════════════════════════╗"
+        echo " ║                         Spaghetti Eaten                        ║"              
+        echo " ╚════════════════════════════════════════════════════════════════╝"
+        echo ""
+          else
+            echo ""
+              fi
+
+
+
+read -p " Is it harvest time? [y/n]" harvester
+if [ "$harvester" == "y" ]
+  then
+    echo ""
+    echo " ╔════════════════════════════════════════════════════════════════╗"
+    echo " ║                            Harvesting                          ║"              
+    echo " ╚════════════════════════════════════════════════════════════════╝"
+    echo ""
+    cd $HOME/Desktop/Ikaros/tools/theHarvester
+    python theHarvester.py -d $ip_to_scan -l 500 -b google
+    cd $HOME/Desktop/Ikaros/tools/Breacher
+    python breacher.py -u $ip_to_scan --fast
+    xterm -e python $HOME/Desktop/Ikaros/tools/a2sv/a2sv.py -t $ip_to_scan -o $HOME/Desktop/Ikaros/results/a2sv_vulnerabilities.txt
+    echo ""
+    echo " ╔════════════════════════════════════════════════════════════════╗"
+    echo " ║                         Harvest Finished                       ║"              
+    echo " ╚════════════════════════════════════════════════════════════════╝"
+    echo ""
+      else
+        echo ""
+fi
+
+
+
+if [ "$port_to_scan" == "443" ]
+  then
+    read -p " would you like to perform the HeartBleed testscan [y/n]" confirm
+  else
+    echo ""
+fi
+
+if [ "$confirm" == "y" ]
+  then
+    python $HOME/Desktop/Ikaros/tools/ssltest.py -i $HOME/Desktop/Ikaros/results/maybe_vulnerable
+  else 
+    echo " exiting"
+  fi
+  
+  
+  
+  
+  
+fi
+            
+if [ "$Home" == "99" ]
+  then
+    cat $HOME/Desktop/Ikaros/README.md
+    echo \ 
+    read -sn 1 -p " Press any key to continue "
+    
+    
+fi
+            
+            
+if [ "$Home" == "00" ]
+  then
+    echo " Exiting"
+    else
+      ikaros
+fi
+      
+fi
