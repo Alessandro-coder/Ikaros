@@ -28,6 +28,8 @@ KEEP THE IKAROS'S FOLDER ON THE DESKTOP!!
 
 ## USAGE
 
+Type: ikaros --update to update the tool.
+
 When you run the script you'll see a menu:
 
 ## IMPORTANT
@@ -76,13 +78,17 @@ OF IKAROS ON YOUR DESKTOP.
 
 ## VERSION
 
-Version Beta 2.1
+Version Beta 2.1.2
 
 Constantly updated
 
-## NEXT UPDATE Beta 2.2
+## LAST UPDATE
 
-Will be added the command: --update
+Added the command: --update
+
+type: ikaros --update to update the tool.
+
+## NEXT UPDATE Beta 2.2
 
 Finished the second option
 
