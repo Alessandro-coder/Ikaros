@@ -300,7 +300,7 @@ if [ "$Home" == "99" ]
     cat $HOME/Desktop/Ikaros/README.md
     echo \ 
     read -sn 1 -p " Press any key to continue "
-    
+    clear
     
 fi
 
